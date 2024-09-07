@@ -13,8 +13,6 @@ interface EmailFormProps {
 export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
 
     const SERVICE_ID = import.meta.env.VITE_EMAIL_SERVER
-    const TEMPLATE_ID = import.meta.env.VITE_EMAIL_TEMPLATE
-    const PUBLIC_KEY = import.meta.env.VITE_EMAIL_PUBLIC
 
     const client = new postmark.ServerClient(SERVICE_ID);
 
