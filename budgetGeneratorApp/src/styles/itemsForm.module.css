@@ -1,0 +1,65 @@
+.itemsFormContainer{
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.itemsSubmitForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.87);
+    gap: 4px;
+}
+
+.itemsSubmitForm h3{
+    font-size: 1.5rem;
+}
+
+.itemsSubmitForm label{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.itemsSubmitForm input{
+    font-size: 1.1rem;
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.itemsFormSubmitButton{
+    align-self: flex-end;
+    font-size: 16px;
+    padding: 4px 8px;
+    margin-top: 12px;
+}
+
+.listaDeElementos{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+    margin-bottom: 0;
+}
+
+.listaDeElementos li{
+    display: flex;
+    padding: 2px;
+    padding-left: 4px;
+    background-color: rgba(255, 255, 255, 0.87);
+    color: black;
+    cursor: default;
+}
+
+.listaDeElementos li:hover{
+    background-color: rgb(255, 99, 99);
+}

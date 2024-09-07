@@ -1,0 +1,118 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.seccionFormularios{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgb(65, 65, 65);
+  color: white;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.seccionDocumento{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-color: rgb(159, 159, 159);
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.actionButtonsDiv{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-bottom: 0;
+  gap: 8px;
+}
+
+.actionButton{
+  background-color: #28a745;
+
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid black;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.actionButton:hover {
+  background-color: #218838;
+}
+
+hr{
+  background-color: rgb(65, 65, 65);
+  height: 1px;
+  width: 90%;
+  border: 0;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 72px;
+  max-height: 150px;
+}
+
+@media (min-width: 960px) {
+
+  main{
+    flex-direction: row;
+  }
+
+  .seccionFormularios{
+    min-width: 300px;
+    width: 30%;
+    max-width: 720px;
+    padding: 0;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  .seccionDocumento{
+    width: 70%;
+    height: 100%;
+  }
+}

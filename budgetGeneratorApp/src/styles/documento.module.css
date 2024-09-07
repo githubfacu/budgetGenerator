@@ -1,0 +1,183 @@
+.documentContainer{
+    width: 794px;
+    height: 1122px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    transform: scale(.3);
+    padding: .5rem 0 3rem;
+}
+
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.encabezadoNivel1{
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+.contacto{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacto span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lucideIcon{
+    padding-right: 4px;
+}
+
+.minusIcon{
+    transform: rotate(90deg);
+}
+
+.datosDelCliente{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.fecha{
+    width: 100%;
+    text-align: end;
+    margin: 8px 0;
+}
+
+.listaDeServicios{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.listaDeServiciosUl{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.listaDeServiciosUl li{
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listaDeServiciosUl li::before {
+    content: "-";
+    margin-right: 8px;
+}
+
+.dottedLine{
+    flex-grow: 1;
+    box-sizing: border-box;
+    position: relative;
+    background: transparent;
+}
+
+.dottedLine::before {
+    content: '';
+    position: absolute;
+    top: .25rem;
+    left: .5rem;
+    right: .5rem;
+    border-bottom: .1rem dotted black;
+}
+
+.dottedLineHidden{
+    flex-grow: 1;
+}
+
+.total{
+    display: flex;
+    width: 90%;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 21px;
+}
+
+.hrlast{
+    margin-bottom: 1rem;
+}
+
+.condiciones{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    text-align: start;
+    margin-top: auto;
+}
+
+.firmaTitular{
+    width: 90%;
+    text-align: end;
+    margin-top: 1rem;
+}
+
+@media (min-width: 325px){
+    .documentContainer{
+        transform: scale(.4);
+    }
+}
+
+@media (min-width: 420px){
+    .documentContainer{
+        transform: scale(.5);
+    }
+}
+
+@media (min-width: 490px){
+    .documentContainer{
+        transform: scale(.6);
+    }
+}
+
+@media (min-width: 768px){
+    .documentContainer{
+        transform: scale(.8);
+    }
+}
+
+@media (min-width: 1010px){
+
+    .documentContainer{
+        transform: scale(.85);
+    }
+}
+
+@media (min-width: 1160px){
+
+    .documentContainer{
+        transform: scale(1);
+    }
+}
