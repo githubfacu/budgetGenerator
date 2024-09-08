@@ -159,10 +159,10 @@ function App() {
           />
             <span 
               className='actionButton'
-              onClick={ handleModalSendEmail }
+              onClick={ generarPDF }
               style={{ margin: '0 1rem 1rem 0', alignSelf: 'flex-end'}}
             >
-              Enviar por correo
+              Descargar pdf
             </span>
         </section>
 

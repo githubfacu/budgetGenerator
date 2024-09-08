@@ -3,7 +3,6 @@ import useInput from '../../hooks/useInput';
 import styles from '../../styles/sendEmailForm.module.css'
 import html2pdf from 'html2pdf.js';
 import { Context } from '../../context/Context';
-import * as postmark from 'postmark';
 
 interface EmailFormProps {
     email: string
@@ -11,10 +10,6 @@ interface EmailFormProps {
 }
 
 export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
-
-    const SERVICE_ID = import.meta.env.VITE_EMAIL_SERVER
-
-    const client = new postmark.ServerClient(SERVICE_ID);
 
     const { modalSwitchOff } = useContext(Context)
 
@@ -55,8 +50,12 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
         setFileName(`presupuesto-${obra.split(' ').join('-')}.pdf`)
     }, [obra])
 
-    const handleSubmitForm = (e: React.FormEvent) => {
+    const handleSubmitForm = async (e: React.FormEvent) => {
+        console.log(remitente.value);
+        
         e.preventDefault()
+        alert('Esta función está momentáneamente deshabilitada')
+        return modalSwitchOff()
         setIsSending(true)
 
         const destinatarios = [destinatarios1.value, destinatarios2.value, destinatarios3.value]
@@ -68,6 +67,7 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
             setIsSending(false);
             return;
         }
+        
 
         // const templateParams = {
         //     remitente: remitente.value,
@@ -80,21 +80,6 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
         //         encoding: 'base64'
         //     } : null,
         // };
-
-        client.sendEmail({
-            From: remitente.value,
-            To: destinatarios1.value,
-            Subject: asunto.value,
-            TextBody: mensaje.value,
-
-        }).then(response => {
-            console.log('Correo enviado correctamente:', response);
-            alert('Correo enviado correctamente')
-            modalSwitchOff()            
-        }).catch(error => {
-            console.error('Error al enviar el correo:', error);
-            alert('Error al enviar el correo')
-        });
     }
 
 
@@ -102,7 +87,7 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
     <form onSubmit={ handleSubmitForm } className={styles.sendEmailFormContainer}>
         <div className={styles.fieldDiv}>
             <label htmlFor="remitente">De</label>
-            <input id="remitente" {...remitente}/>
+            <input disabled={true} id="remitente" {...remitente}/>
         </div>
         <div className={styles.fieldDiv}>
             <label htmlFor="destinatarios1">Destinatario 1</label>
@@ -128,6 +113,8 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
         <button type="submit" disabled={isSending}>
             {isSending ? 'Enviando...' : 'Enviar Correo'}
         </button>
+
+        <span style={{ color: 'red'}}>El servicio de correo está momentáneamente deshabilitado.</span>
 
         {pdfBase64 && <p>Archivo adjunto: {fileName}</p>}
     </form>

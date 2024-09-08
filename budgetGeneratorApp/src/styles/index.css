@@ -70,6 +70,7 @@ main {
 
 .actionButton{
   background-color: #28a745;
+  background-color: #0b57d0;
 
   padding: 4px 8px;
   cursor: pointer;
@@ -81,6 +82,7 @@ main {
 
 .actionButton:hover {
   background-color: #218838;
+  background-color: #1b61d1;
 }
 
 hr{
