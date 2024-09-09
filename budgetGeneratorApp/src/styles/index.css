@@ -21,6 +21,26 @@ h1, h2, h3, h4, h5, h6, p{
   text-align: center;
 }
 
+.header{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+  text-align: start;
+}
+
+.header figure{
+  margin: 0;
+  display: flex;
+}
+
+.header img{
+  width: 60px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -116,5 +136,12 @@ textarea{
   .seccionDocumento{
     width: 70%;
     height: 100%;
+  }
+}
+
+@media (min-width: 768px){
+
+  .header{
+
   }
 }

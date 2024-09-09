@@ -114,6 +114,12 @@ function App() {
     <>
       <main>
         <section className='seccionFormularios'>
+          <div className='header'>
+            <figure>
+              <img src="/globe-icon-isolated.jpg" alt="" />
+            </figure>
+            <h2>Budget Generator</h2>
+          </div>
           <div className='actionButtonsDiv'>
             <span 
               className='actionButton'
