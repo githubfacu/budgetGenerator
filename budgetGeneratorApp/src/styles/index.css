@@ -117,6 +117,16 @@ textarea{
   max-height: 150px;
 }
 
+input{
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+textarea{
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
 @media (min-width: 960px) {
 
   main{

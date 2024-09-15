@@ -32,3 +32,10 @@
     padding: 4px;
     width: 100%;
 }
+
+.desplegarSeccion{
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+}

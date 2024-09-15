@@ -12,8 +12,10 @@
     align-items: flex-start;
     justify-content: center;
     padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.87);
+    background-color: rgb(175, 175, 175);
+    color: black;
     gap: 4px;
+    border-radius: 3px;
 }
 
 .itemsSubmitForm h3{
@@ -27,7 +29,7 @@
 
 .itemsSubmitForm input{
     font-size: 1.1rem;
-    padding: 4px;
+    padding: 6px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -38,29 +40,66 @@
     padding: 6px 12px;
     border-radius: 3px;
     margin-top: 12px;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    transition: background-color .075s ease;
+}
+
+.itemsFormSubmitButton:hover{
+    background-color: rgb(75, 75, 75);
 }
 
 .listaDeElementos{
-    list-style-type: none;
-    padding: 0;
+    padding: .2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    box-sizing: border-box;
+    border-radius: 3px;
     width: 100%;
     gap: 4px;
     margin-bottom: 0;
+    background-color: rgb(175, 175, 175);
+    color: black;
 }
 
 .listaDeElementos li{
+    width: 100%;
     display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
     padding: 2px;
-    padding-left: 4px;
-    background-color: rgba(255, 255, 255, 0.87);
-    color: black;
     cursor: default;
+    gap: 8px;
 }
 
-.listaDeElementos li:hover{
-    background-color: rgb(255, 99, 99);
+.listaDeElementos li input{
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 19px;
+    padding: 4px;
+    background-color: transparent;
+}
+
+.listaDeElementos li input:focus{
+    background-color: rgba(255, 255, 255, 0.87);
+}
+
+.priceInput{
+    text-align: end;
+}
+
+.trashIcon{
+    display: flex;
+    padding: .2rem;
+    margin-left: auto;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.trashIcon:hover{
+    background-color: rgba(255, 255, 255, 0.87);
 }

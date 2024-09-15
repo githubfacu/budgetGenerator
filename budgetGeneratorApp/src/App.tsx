@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { Documento } from './components/documento/Documento'
 import { AddItemsForm } from './components/formularios/AddItemsForm';
 import { Formulario } from './components/formularios/Formulario'
@@ -62,10 +62,40 @@ function App() {
 
   const addItem = (item: ItemType) => {
     setItemList([...itemList, item])
+    itemField.reset()
+    itemPrice.reset()
   }
 
   const removeItem = (item: ItemType) => {
     const updatedList = itemList.filter((currentItem) => currentItem !== item )
+    setItemList(updatedList)
+  }
+
+  const itemTextContentUpdate = (e: FormEvent<HTMLInputElement>, item: ItemType) => {
+
+    const newValue = (e.target as HTMLInputElement).value
+
+    const updatedList = itemList.map((currentItem) => {
+      if (currentItem === item) {
+        return { ...currentItem, textContent: newValue }
+      }
+      return currentItem
+    })
+
+    setItemList(updatedList)
+  }
+
+  const itemPriceUpdate = (e: FormEvent<HTMLInputElement>, item: ItemType) => {
+
+    const newValue = (e.target as HTMLInputElement).value
+
+    const updatedList = itemList.map((currentItem) => {
+      if (currentItem === item) {
+        return { ...currentItem, price: newValue }
+      }
+      return currentItem
+    })
+
     setItemList(updatedList)
   }
 
@@ -152,6 +182,8 @@ function App() {
             addItem={addItem}
             itemList={itemList}
             removeItem={removeItem}
+            itemTextContentUpdate={itemTextContentUpdate}
+            itemPriceUpdate={itemPriceUpdate}
           />
           <TotalAmount totalAmount={totalAmount}/>
           <Condiciones 
