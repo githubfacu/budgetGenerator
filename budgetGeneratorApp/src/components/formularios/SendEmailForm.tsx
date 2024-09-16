@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import useInput from '../../hooks/useInput';
 import styles from '../../styles/sendEmailForm.module.css'
 import html2pdf from 'html2pdf.js';
-import { Context } from '../../context/Context';
+import { ModalContext } from '../../context/ModalContext';
 
 interface EmailFormProps {
     email: string
@@ -11,7 +11,7 @@ interface EmailFormProps {
 
 export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
 
-    const { modalSwitchOff } = useContext(Context)
+    const { modalSwitchOff } = useContext(ModalContext)
 
     const remitente = useInput('text', email);
     const destinatarios1 = useInput('text');

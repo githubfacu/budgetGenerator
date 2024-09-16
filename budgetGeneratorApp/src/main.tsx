@@ -1,10 +1,13 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './styles/index.css'
-import ContextProvider from './context/ContextProvider.tsx'
+import ModalProvider from './context/ModalProvider.tsx'
+import DataProvider from './context/data/DataProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <ContextProvider>
-    <App />
-  </ContextProvider>,
+  <ModalProvider>
+    <DataProvider>
+      <App />      
+    </DataProvider>
+  </ModalProvider>,
 )

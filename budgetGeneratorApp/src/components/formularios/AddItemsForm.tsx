@@ -1,20 +1,12 @@
 import { Trash2 } from 'lucide-react';
-import useInput from '../../hooks/useInput';
 import styles from '../../styles/itemsForm.module.css'
-import { ItemType } from '../../types/form-types';
-import { FormEvent } from 'react';
+import { useContext } from 'react';
+import { DataContext } from '../../context/data/DataContext';
 
-interface FormProps {
-    itemField: ReturnType<typeof useInput>
-    itemPrice: ReturnType<typeof useInput>
-    itemList: ItemType[]
-    addItem: (item: ItemType) => void    
-    removeItem: (item: ItemType) => void
-    itemTextContentUpdate: (e: FormEvent<HTMLInputElement>, item: ItemType) => void
-    itemPriceUpdate: (e: FormEvent<HTMLInputElement>, item: ItemType) => void
-}
+export const AddItemsForm = () => {
 
-export const AddItemsForm = ( { itemField, itemPrice, addItem, itemList, removeItem, itemTextContentUpdate, itemPriceUpdate } : FormProps) => {
+    const { itemList, inputs, addItem, removeItem, itemTextContentUpdate, itemPriceUpdate } = useContext(DataContext)
+    const { itemField , itemPrice } = inputs
 
     const handleSubmit = () => {
         addItem({textContent: itemField.value, price: itemPrice.value})
@@ -77,9 +69,6 @@ export const AddItemsForm = ( { itemField, itemPrice, addItem, itemList, removeI
                 }
             </ul>            
         }
-
-
     </div>
-
   )
 }

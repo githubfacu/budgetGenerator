@@ -24,6 +24,7 @@ export type FormDataType = {
     clientData: ClientDataType
     totalAmount: string
     condiciones: CondicionesType
+    firmaTitular: string
 }
 
 export type ItemType = {

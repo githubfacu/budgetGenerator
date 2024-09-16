@@ -1,11 +1,11 @@
 import React, { ReactNode, useState } from 'react'
-import { Context } from './Context';
+import { ModalContext } from './ModalContext';
 
 interface ContextProviderProps{
     children: ReactNode
 }
 
-const ContextProvider: React.FC<ContextProviderProps> = ({children}) => {
+const ModalProvider: React.FC<ContextProviderProps> = ({children}) => {
 
     const [modalSwitch, setModalSwitch] = useState<boolean>(false);
     const [passwordMatch, setPasswordMatch] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const ContextProvider: React.FC<ContextProviderProps> = ({children}) => {
 
     
   return (
-    <Context.Provider 
+    <ModalContext.Provider 
         value={{
             modalSwitch, 
             passwordMatch, 
@@ -39,8 +39,8 @@ const ContextProvider: React.FC<ContextProviderProps> = ({children}) => {
         }}
     >
         {children}
-    </Context.Provider>
+    </ModalContext.Provider>
   )
 }
 
-export default ContextProvider
+export default ModalProvider

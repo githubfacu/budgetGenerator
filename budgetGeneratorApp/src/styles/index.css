@@ -23,22 +23,38 @@ h1, h2, h3, h4, h5, h6, p{
 
 .header{
   display: flex;
+  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
   align-items: center;
   justify-content: flex-start;
   padding: 1rem;
   gap: 1rem;
+}
+
+.brand{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
   text-align: start;
 }
 
-.header figure{
+.brand figure{
   margin: 0;
   display: flex;
 }
 
-.header img{
+.brand img{
   width: 60px;
+}
+
+.header p{
+  width: 100%;
+  text-align: start;
+
 }
 
 main {
@@ -91,7 +107,7 @@ main {
 .actionButton{
   background-color: #28a745;
   background-color: #0b57d0;
-  padding: 6px 12px;
+  padding: 8px 12px 6px;
   cursor: pointer;
   border-radius: 3px;
   border: 1px solid black;
@@ -150,7 +166,4 @@ textarea{
 
 @media (min-width: 768px){
 
-  .header{
-
-  }
 }

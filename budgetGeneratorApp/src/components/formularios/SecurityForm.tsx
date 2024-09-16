@@ -2,11 +2,11 @@ import { KeyRound } from "lucide-react"
 import styles from "../../styles/securityForm.module.css"
 import useInput from "../../hooks/useInput"
 import { useContext } from "react"
-import { Context } from "../../context/Context"
+import { ModalContext } from "../../context/ModalContext"
 
 export const SecurityForm = () => {
 
-    const { passwordMatchOn } = useContext(Context)
+    const { passwordMatchOn } = useContext(ModalContext)
 
     const clave = import.meta.env.VITE_CLAVE
     const password = useInput('text')

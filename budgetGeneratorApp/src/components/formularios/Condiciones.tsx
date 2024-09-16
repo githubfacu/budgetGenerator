@@ -1,20 +1,13 @@
-
-import { useState } from 'react';
-import useInput from '../../hooks/useInput';
+import { useContext, useState } from 'react';
 import styles from '../../styles/condiciones.module.css'
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { DataContext } from '../../context/data/DataContext';
 
-interface CondicionesProps {
-    condiciones1: ReturnType<typeof useInput>;
-    condiciones2: ReturnType<typeof useInput>;
-    condiciones3: ReturnType<typeof useInput>;
-    condiciones4: ReturnType<typeof useInput>;
-}
-
-const Condiciones = ( { condiciones1, condiciones2, condiciones3, condiciones4 } : CondicionesProps ) => {
+const Condiciones = () => {
 
     const [showMore, setShowMore] = useState(false)
-
+    const { inputs } = useContext(DataContext)
+    const { condiciones1, condiciones2, condiciones3, condiciones4 } = inputs
 
   return (
     <div className={styles.condicionesContainer}>

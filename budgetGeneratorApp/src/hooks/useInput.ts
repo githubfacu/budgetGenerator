@@ -1,18 +1,13 @@
 import { useState } from "react"
 
 const useInput = (type: string, initialValue: string = '') => {
-
     const [value, setValue] = useState(initialValue)
 
-    const onChange = (e: { target: { value: string } }) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValue(e.target.value)
     }
-    
-    const reset = () => {
-        setValue('');
-      };
-    
-      return { value, onChange, reset, type };
-}
+
+    return { value, onChange, type }
+};
 
 export default useInput

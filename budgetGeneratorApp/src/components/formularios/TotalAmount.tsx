@@ -1,11 +1,11 @@
-import useInput from "../../hooks/useInput"
+import { useContext } from "react"
 import styles from "../../styles/individualInput.module.css"
+import { DataContext } from "../../context/data/DataContext"
 
-interface TotalAmountProps {
-    totalAmount: ReturnType<typeof useInput>
-}
+export const TotalAmount = () => {
 
-export const TotalAmount = ( {totalAmount} : TotalAmountProps ) => {
+  const { inputs } = useContext(DataContext)
+  const { totalAmount } = inputs
 
   return (
     <div className={styles.componentContainer}>

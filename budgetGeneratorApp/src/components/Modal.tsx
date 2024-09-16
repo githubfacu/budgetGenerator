@@ -1,18 +1,15 @@
-import styles from "../styles/modal.module.css"
 import { X } from "lucide-react"
 import { SecurityForm } from "./formularios/SecurityForm"
 import { useContext, useRef } from "react"
-import { Context } from "../context/Context"
+import { ModalContext } from "../context/ModalContext"
 import { SendEmailForm } from "./formularios/SendEmailForm"
+import { DataContext } from "../context/data/DataContext"
+import styles from "../styles/modal.module.css"
 
-interface ModalProps {
-    email: string
-    obra :string
-}
+export const Modal = () => {
 
-export const Modal = ( { email, obra } : ModalProps ) => {
-
-    const { passwordMatch, modalSwitchOff } = useContext(Context)
+    const { formData } = useContext(DataContext)
+    const { passwordMatch, modalSwitchOff } = useContext(ModalContext)
     const modalRef = useRef<HTMLDivElement>(null)
 
     // const handleClickOutside = (event: MouseEvent) => {
@@ -43,8 +40,8 @@ export const Modal = ( { email, obra } : ModalProps ) => {
                 <div style={{width: '100%'}}>
                     <h2 style={{marginBottom: 12}}>Servicio de correo electrónico</h2>
                     <SendEmailForm 
-                        email={email}
-                        obra={obra}
+                        email={formData.personalData.email}
+                        obra={formData.clientData.obra}
                     />
                 </div>
                 :

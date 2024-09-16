@@ -17,4 +17,4 @@ const defaultContext = {
     },
 }
 
-export const Context = createContext(defaultContext)
+export const ModalContext = createContext(defaultContext)

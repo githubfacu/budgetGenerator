@@ -1,31 +1,20 @@
+import { useContext } from 'react';
+import styles from '../../styles/formulario.module.css';
+import { DataContext } from '../../context/data/DataContext';
 
-import useInput from '../../hooks/useInput';
-import styles from '../../styles/formulario.module.css'
+export const Formulario = () => {
 
-
-interface FormularioProps {
-    nombreDeMarca: ReturnType<typeof useInput>;
-    profesion: ReturnType<typeof useInput>;
-    telefono: ReturnType<typeof useInput>;
-    email: ReturnType<typeof useInput>;
-    presupuesto: ReturnType<typeof useInput>;
-    obra: ReturnType<typeof useInput>;
-    arquitect: ReturnType<typeof useInput>;
-    fecha: ReturnType<typeof useInput>;
-    guardarEnStorage: () => void   
-}
-
-export const Formulario: React.FC<FormularioProps> = ( { 
-    nombreDeMarca, 
-    profesion, 
-    telefono, 
-    email,
-    presupuesto,
-    obra,
-    arquitect,
-    fecha,
-    guardarEnStorage
-} ) => {
+    const { inputs, guardarEnStorage } = useContext(DataContext)
+    const { 
+        nombreDeMarca, 
+        profesion, 
+        telefono, 
+        email,
+        presupuesto,
+        obra,
+        arquitect,
+        fecha
+    } = inputs
     
     return (
         <form className={styles.formContainer}>
@@ -83,7 +72,7 @@ export const Formulario: React.FC<FormularioProps> = ( {
                 
                 <div className={styles.textareaDiv}>
                     <label htmlFor="presupuesto">Tipo Presupuesto</label>
-                    <textarea id="presupuesto" {...presupuesto}/>                
+                    <textarea id="presupuesto" value={presupuesto.value} onChange={presupuesto.onChange}/>
                 </div>
             </div>
 

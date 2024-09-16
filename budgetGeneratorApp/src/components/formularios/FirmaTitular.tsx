@@ -1,11 +1,11 @@
-import useInput from "../../hooks/useInput"
+import { useContext } from "react"
+import { DataContext } from "../../context/data/DataContext"
 import styles from "../../styles/individualInput.module.css"
 
-interface FirmaTitularProps {
-    firmaTitular: ReturnType<typeof useInput>
-}
+export const FirmaTitular = () => {
 
-export const FirmaTitular = ( { firmaTitular } : FirmaTitularProps ) => {
+  const { inputs } = useContext(DataContext)
+  const { firmaTitular } = inputs
 
   return (
     <div className={styles.componentContainer}>

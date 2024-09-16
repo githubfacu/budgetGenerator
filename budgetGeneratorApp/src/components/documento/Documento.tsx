@@ -1,14 +1,11 @@
-import { Mail, Minus, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import { useContext } from 'react';
+import { DataContext } from '../../context/data/DataContext';
 import styles from '../../styles/documento.module.css'
-import { FormDataType, ItemType } from '../../types/form-types';
 
-interface DocumentoProps {
-    formData: FormDataType
-    itemList: ItemType[]
-    firmaTitular: string
-}
+export const Documento = () => {
 
-export const Documento = ( { formData, itemList, firmaTitular } : DocumentoProps) => {
+    const { formData, itemList } = useContext(DataContext)
 
     const date = new Date(`${formData.clientData.fecha}T00:00:00`)
 
@@ -42,19 +39,16 @@ export const Documento = ( { formData, itemList, firmaTitular } : DocumentoProps
                 {formData.personalData.profesion}
             </h2>
             <div className={styles.contacto}>
-                <span className={styles.lucideIcon}>
+                <span className={styles.phoneIcon}>
                     <Phone strokeWidth={1.75} size={20}/>
                 </span>
-                <span>
+                <span className={styles.dataTel}>
                     {formData.personalData.telefono}
                 </span>
-                <span className={styles.minusIcon}>
-                    <Minus strokeWidth={1.5} size={20}/>
-                </span>
-                <span className={styles.lucideIcon}>
+                <span className={styles.mailIcon}>
                     <Mail strokeWidth={1.75} size={20}/>                    
                 </span>
-                <span>
+                <span className={styles.dataEmail}>
                     {formData.personalData.email}
                 </span>
             </div>
@@ -108,7 +102,7 @@ export const Documento = ( { formData, itemList, firmaTitular } : DocumentoProps
         </div>
 
         <div className={styles.firmaTitular}>
-            <span>{firmaTitular}</span>            
+            <span>{formData.firmaTitular}</span>            
         </div>
     </div>
   )
