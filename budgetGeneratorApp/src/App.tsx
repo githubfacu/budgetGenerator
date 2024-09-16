@@ -60,6 +60,7 @@ function App() {
             </div>
             <p>Genera un Presupuesto de página simple y descarga el archivo en formato pdf</p>
           </div>
+          
           <div className='actionButtonsDiv'>
             <button 
               className='actionButton'
