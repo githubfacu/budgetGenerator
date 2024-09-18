@@ -7,7 +7,7 @@ import DataProvider from './context/data/DataProvider.tsx'
 createRoot(document.getElementById('root')!).render(
   <ModalProvider>
     <DataProvider>
-      <App />      
+      <App />
     </DataProvider>
   </ModalProvider>,
 )
