@@ -54,7 +54,7 @@ function App() {
           <div className='header' role='banner'>
             <div className='brand'>
               <figure>
-                <img src="/globe-icon-isolated.jpg" alt="Ícono de globo terráqueo" />
+                <img src="/globe-icon-isolated.jpg" alt="Ícono de globo terráqueo" width={60} height={60}/>
               </figure>
               <h2>Budget Generator</h2>              
             </div>
