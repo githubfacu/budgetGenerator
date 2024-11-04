@@ -51,10 +51,10 @@ function App() {
     <>
       <main>
         <section className='seccionFormularios'>
-          <div className='header' role='heading'>
+          <div className='header' role='banner'>
             <div className='brand'>
               <figure>
-                <img src="/globe-icon-isolated.jpg" alt="" />
+                <img src="/globe-icon-isolated.jpg" alt="Ícono de globo terráqueo" />
               </figure>
               <h2>Budget Generator</h2>              
             </div>
