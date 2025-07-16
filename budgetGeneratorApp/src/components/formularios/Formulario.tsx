@@ -20,7 +20,7 @@ export const Formulario = () => {
         <form className={styles.formContainer}>
 
             <div className={styles.dataEncabezado}>
-                <legend><strong>Datos Personales</strong></legend>
+                <legend>Datos personales</legend>
 
                 <div className={styles.fieldDiv}>
                     <label htmlFor="nombreDeMarca">Titular</label>
@@ -53,7 +53,7 @@ export const Formulario = () => {
             <hr />
 
             <div className={styles.budgetClientData}>
-                <legend><strong>Datos Del Cliente</strong></legend>
+                <legend>Datos del cliente</legend>
 
                 <div className={styles.fieldDiv}>
                     <label htmlFor="fecha">Fecha</label>
@@ -71,7 +71,7 @@ export const Formulario = () => {
                 </div>
                 
                 <div className={styles.textareaDiv}>
-                    <label htmlFor="presupuesto">Tipo Presupuesto</label>
+                    <label htmlFor="presupuesto">Tipo de presupuesto</label>
                     <textarea id="presupuesto" value={presupuesto.value} onChange={presupuesto.onChange}/>
                 </div>
             </div>

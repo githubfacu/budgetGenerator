@@ -12,11 +12,10 @@ export const AddItemsForm = () => {
         addItem({textContent: itemField.value, price: itemPrice.value})
     }
 
-
   return (
     <div className={styles.itemsFormContainer}>
         <div className={styles.itemsSubmitForm}>
-            <h3>Lista de Servicios</h3>
+            <span className={styles.legendTitle}>Lista de servicios</span>
 
             <label htmlFor="itemField">Item</label>
             <input 

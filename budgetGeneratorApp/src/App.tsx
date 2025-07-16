@@ -58,7 +58,7 @@ function App() {
               </picture>
               <h2>Budget Generator</h2>              
             </div>
-            <p>Genera un Presupuesto de página simple y descarga el archivo en formato pdf</p>
+            <p>Genera un presupuesto de página simple y descarga el archivo en formato pdf</p>
           </div>
           
           <div className='actionButtonsDiv'>

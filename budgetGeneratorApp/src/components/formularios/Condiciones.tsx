@@ -11,10 +11,10 @@ const Condiciones = () => {
 
   return (
     <div className={styles.condicionesContainer}>
-        <legend><strong>Condiciones de contrato</strong></legend>
+        <legend>Condiciones de contrato</legend>
 
         <div className={styles.textareaDiv}>
-            <label htmlFor="condiciones1">Descripción 1</label>
+            <label htmlFor="condiciones1">Descripción</label>
             <textarea id="condiciones1" {...condiciones1} placeholder='descripción opcional...'/>                
         </div>
 

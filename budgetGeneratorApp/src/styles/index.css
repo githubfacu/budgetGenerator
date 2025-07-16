@@ -126,18 +126,28 @@ hr{
   border: 0;
 }
 
-textarea{
-  resize: vertical;
-  min-height: 72px;
-  max-height: 150px;
+legend{
+  font-size: 1.3rem;
+  margin: .5rem 0;
+  font-weight: 500;
 }
 
 input{
+  font-size: 1rem;
+  padding: .5rem;
+  width: 100%;
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.87);
 }
 
 textarea{
+  resize: vertical;
+  min-height: 72px;
+  max-height: 150px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: .5rem;
+  width: 100%;
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.87);
 }
@@ -146,6 +156,11 @@ textarea{
 
   main{
     flex-direction: row;
+  }
+
+  .header{
+    padding: 1.5rem;
+    padding-bottom: 1rem;
   }
 
   .seccionFormularios{
@@ -160,5 +175,9 @@ textarea{
   .seccionDocumento{
     width: 70%;
     height: 100%;
+  }
+
+  .actionButtonsDiv{
+    padding: 1rem 1.5rem 0;
   }
 }

@@ -30,13 +30,7 @@
 }
 
 .fieldDiv label, .textareaDiv label {
-    font-weight: 500;
-}
-
-.fieldDiv input {
-    font-size: 1.1rem;
-    padding: 4px;
-    width: 100%;
+    font-size: 1rem;
 }
 
 .budgetClientData{
@@ -60,16 +54,8 @@
     font-size: 1.1rem;
 }
 
-.textareaDiv textarea {
-    box-sizing: border-box;
-    font-size: 1.1rem;
-    padding: 4px;
-    width: 100%;
-}
-
-.formContainer legend{
-    font-size: 1.5rem;
-    margin: 4px 0;
+.textareaDiv label{
+    margin: .5rem 0;
 }
 
 .formContainer hr{
@@ -81,6 +67,7 @@
     font-size: 1rem;
     font-weight: 500;
     text-decoration: underline;
+    text-underline-offset: 2px;
     align-self: flex-end;
     color: rgba(255, 255, 255, 0.87);
     user-select: none;
