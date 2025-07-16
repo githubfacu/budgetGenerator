@@ -103,3 +103,9 @@
 .trashIcon:hover{
     background-color: rgba(255, 255, 255, 0.87);
 }
+
+@media (min-width: 768px){
+    .itemsFormContainer{
+        padding: 1rem 1.5rem;
+    }
+}

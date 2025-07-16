@@ -43,14 +43,16 @@ h1, h2, h3, h4, h5, h6, p{
   text-align: start;
 }
 
-.brand figure{
+.brand picture{
   margin: 0;
   display: flex;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .header p{
-  width: 100%;
   text-align: start;
+  font-size: 1rem;
 }
 
 main {
@@ -160,8 +162,4 @@ textarea{
     width: 70%;
     height: 100%;
   }
-}
-
-@media (min-width: 768px){
-
 }

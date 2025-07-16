@@ -39,3 +39,9 @@
     padding: 4px;
     cursor: pointer;
 }
+
+@media (min-width: 768px){
+    .condicionesContainer{
+        padding: 1rem 1.5rem;
+    }
+}

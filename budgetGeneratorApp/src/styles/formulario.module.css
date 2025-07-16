@@ -90,3 +90,9 @@
 .autoguardar:hover{
     color: white;
 }
+
+@media (min-width: 768px){
+    .formContainer{
+        padding: 1rem 1.5rem;
+    }
+}

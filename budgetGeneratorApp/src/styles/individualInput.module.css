@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    margin: 2rem 0 1rem;
+    padding: 2rem 1rem 1rem;
 }
 
 .inputContainer{
@@ -13,7 +13,6 @@
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
-    margin: 1rem;
     gap: 4px;
 }
 
@@ -37,5 +36,11 @@
     .inputContainer{
         flex-direction: row;
         align-items: center;
+    }
+}
+
+@media (min-width: 768px){
+    .componentContainer{
+        padding: 1rem 1.5rem;
     }
 }

@@ -53,9 +53,9 @@ function App() {
         <section className='seccionFormularios'>
           <div className='header' role='banner'>
             <div className='brand'>
-              <figure>
+              <picture>
                 <img src="/globe-icon-isolated.jpg" alt="Ícono de globo terráqueo" width={60} height={60}/>
-              </figure>
+              </picture>
               <h2>Budget Generator</h2>              
             </div>
             <p>Genera un Presupuesto de página simple y descarga el archivo en formato pdf</p>
@@ -78,13 +78,29 @@ function App() {
 
           <FormContainer />
 
-          <button 
-            className='actionButton'
-            onClick={ generarPDF }
-            style={{ margin: '0 1rem 1rem 0', alignSelf: 'flex-end'}}
-          >
-            Descargar pdf
-          </button>
+          <div className='actionButtonsDiv'
+            style={{ marginBottom: '1rem', justifyContent: 'flex-end' }}>
+            <button 
+              className='actionButton'
+              onClick={ () => alert(
+                '¡Gracias por tu interés en donar! 🙌\n\n' +
+                'Usá los siguientes datos en tu app de banco o Mercado Pago para realizar la transferencia:\n\n' +
+                '🔹 Nombre: Facundo Elorz\n' +
+                '🔹 Alias: banco.plus.alzar.mp\n' +
+                '🔹 Plataforma: Mercado Pago\n\n' +
+                'Una vez realizada la donación, ¡agradecemos mucho tu apoyo! ❤️'
+              )}
+            >
+              Donar
+            </button>
+            <button 
+              className='actionButton'
+              onClick={ generarPDF }
+            >
+              Descargar pdf
+            </button>            
+          </div>
+
         </section>
 
         <section className='seccionDocumento'>
