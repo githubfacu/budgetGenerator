@@ -86,6 +86,7 @@ function App() {
                 '¡Gracias por tu interés en donar! 🙌\n\n' +
                 'Usá los siguientes datos en tu app de banco o Mercado Pago para realizar la transferencia:\n\n' +
                 '🔹 Nombre: Facundo Elorz\n' +
+                '🔹 CVU: 0000003100013822867777\n' +
                 '🔹 Alias: banco.plus.alzar.mp\n' +
                 '🔹 Plataforma: Mercado Pago\n\n' +
                 'Una vez realizada la donación, ¡agradecemos mucho tu apoyo! ❤️'
