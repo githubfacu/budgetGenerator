@@ -83,7 +83,6 @@
     text-decoration: underline;
     align-self: flex-end;
     color: rgba(255, 255, 255, 0.87);
-    cursor: pointer;
     user-select: none;
 }
 

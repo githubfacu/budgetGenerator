@@ -107,8 +107,7 @@ main {
   background-color: #28a745;
   background-color: #0b57d0;
   padding: 8px 12px 6px;
-  cursor: pointer;
-  border-radius: 3px;
+  border-radius: 4px;
   border: 1px solid black;
   color: white;
   font-size: 1.1rem;
@@ -134,12 +133,12 @@ textarea{
 }
 
 input{
-  border-radius: 3px;
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.87);
 }
 
 textarea{
-  border-radius: 3px;
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.87);
 }
 
