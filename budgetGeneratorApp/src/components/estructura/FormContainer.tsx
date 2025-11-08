@@ -1,14 +1,14 @@
 import { AddItemsForm } from "../formularios/AddItemsForm"
 import Condiciones from "../formularios/Condiciones"
 import { FirmaTitular } from "../formularios/FirmaTitular"
-import { Formulario } from "../formularios/Formulario"
+import { BasicDataForm } from "../formularios/BasicDataForm"
 import { TotalAmount } from "../formularios/TotalAmount"
 
 export const FormContainer = () => {
 
   return (
     <>
-        <Formulario />
+        <BasicDataForm />
         <AddItemsForm />
         <TotalAmount />
         <Condiciones />

@@ -10,8 +10,11 @@ const Condiciones = () => {
     const { condiciones1, condiciones2, condiciones3, condiciones4 } = inputs
 
   return (
-    <div className={styles.condicionesContainer}>
-        <legend>Condiciones de contrato</legend>
+    <section 
+        className={styles.condicionesContainer}
+        aria-labelledby='conditions'    
+    >
+        <h2 id='conditions'>Condiciones de contrato</h2>
 
         <div className={styles.textareaDiv}>
             <label htmlFor="condiciones1">Descripción</label>
@@ -20,7 +23,7 @@ const Condiciones = () => {
 
         {
             showMore &&
-            <>
+            <div id='condiciones-extra'>
                 <div className={styles.textareaDiv}>
                     <label htmlFor="condiciones2">Descripción 2</label>
                     <textarea id='condiciones2' {...condiciones2} placeholder='descripción opcional...'/>
@@ -35,25 +38,27 @@ const Condiciones = () => {
                     <label htmlFor="condiciones4">Descripción 4</label>
                     <textarea id='condiciones4' {...condiciones4} placeholder='descripción opcional...'/>
                 </div> 
-            </>
+            </div>
         }
 
-        <span 
+        <button 
             className={styles.desplegarSeccion}
             onClick={ () => setShowMore(!showMore) }
+            aria-expanded={showMore}
+            aria-controls="condiciones-extra"
+            type='button'
         >
-            <small>
-                <strong>
-                    { showMore ? 'Contraer sección' : 'Desplegar sección' }
-                </strong>
-            </small>
+            <strong>
+                { showMore ? 'Contraer sección' : 'Desplegar sección' }
+            </strong>
             
             {
-                showMore ? <ChevronUp /> : <ChevronDown />
+                showMore ? <ChevronUp aria-hidden='true' /> : 
+                <ChevronDown  aria-hidden='true' />
             }
-        </span>
+        </button>
 
-    </div>
+    </section>
   )
 }
 

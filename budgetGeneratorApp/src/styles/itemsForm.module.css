@@ -19,29 +19,13 @@
     border-radius: 6px;
 }
 
-.legendTitle{
-    font-size: 1.3rem;
-    margin: .5rem 0;
-    font-weight: 400;
-}
-
 .itemsSubmitForm input{
     box-sizing: border-box;
 }
 
 .itemsFormSubmitButton{
     align-self: flex-end;
-    font-size: 16px;
-    padding: 6px 12px;
-    border-radius: 4px;
     margin-top: 12px;
-    background-color: var(--bgColorSecondary);
-    color: white;
-    transition: background-color .075s ease;
-}
-
-.itemsFormSubmitButton:hover{
-    background-color: rgb(65, 65, 65);
 }
 
 .listaDeElementos{
@@ -91,6 +75,7 @@
     display: flex;
     padding: .2rem;
     margin-left: auto;
+    background-color: transparent;
     border: 2px solid black;
     border-radius: 3px;
 }

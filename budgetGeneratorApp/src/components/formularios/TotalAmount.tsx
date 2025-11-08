@@ -10,7 +10,7 @@ export const TotalAmount = () => {
   return (
     <div className={styles.componentContainer}>
         <div className={styles.inputContainer}>
-            <label htmlFor="totalAmount" >Monto Total</label>
+            <label htmlFor="totalAmount">Total</label>
             <input 
                 id="totalAmount" 
                 {...totalAmount} 

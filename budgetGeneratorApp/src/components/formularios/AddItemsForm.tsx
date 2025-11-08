@@ -8,14 +8,17 @@ export const AddItemsForm = () => {
     const { itemList, inputs, addItem, removeItem, itemTextContentUpdate, itemPriceUpdate } = useContext(DataContext)
     const { itemField , itemPrice } = inputs
 
-    const handleSubmit = () => {
+    const handleAddItem = () => {
         addItem({textContent: itemField.value, price: itemPrice.value})
     }
 
   return (
-    <div className={styles.itemsFormContainer}>
+    <section 
+        aria-labelledby='services-list'
+        className={styles.itemsFormContainer}
+    >
         <div className={styles.itemsSubmitForm}>
-            <span className={styles.legendTitle}>Lista de servicios</span>
+            <h2 id='services-list'>Lista de servicios</h2>
 
             <label htmlFor="itemField">Item</label>
             <input 
@@ -30,44 +33,58 @@ export const AddItemsForm = () => {
             />
 
             <button
-                className={styles.itemsFormSubmitButton}
-                onClick={ handleSubmit }
+                className={`button-secondary ${styles.itemsFormSubmitButton}`}
+                onClick={ handleAddItem }
             >
                 Agregar Item
             </button>
         </div>
 
-        {
-            itemList.length > 0 &&
-            <ul className={styles.listaDeElementos}>
-                {
-                    itemList.map((item, index) => (
-                        <li
-                            key={index}
-                        >
-                            <input 
-                                type="text" 
-                                value={item.textContent} 
-                                className={styles.textContentInput}
-                                onChange={ (e) => itemTextContentUpdate(e, item) }
-                            />
-                            <input 
-                                type="text" 
-                                value={item.price} 
-                                className={styles.priceInput}
-                                onChange={ (e) => itemPriceUpdate(e, item) }
-                            />
-                            <span className={styles.trashIcon}>
-                                <Trash2  
+        <div 
+            aria-live='polite'
+            aria-relevant='additions removals'
+        >
+            {
+                itemList.length > 0 &&
+                <ul 
+                    aria-labelledby='services-list'
+                    className={styles.listaDeElementos}
+                >
+                    {
+                        itemList.map((item, index) => (
+                            <li
+                                key={index}
+                            >
+                                <input 
+                                    type="text"
+                                    value={item.textContent} 
+                                    className={styles.textContentInput}
+                                    onChange={ (e) => itemTextContentUpdate(e, item) }
+                                />
+                                <input 
+                                    type="text" 
+                                    value={item.price} 
+                                    className={styles.priceInput}
+                                    onChange={ (e) => itemPriceUpdate(e, item) }
+                                />
+                                <button 
+                                    className={styles.trashIcon}
+                                    aria-label='Eliminar item'
                                     onClick={ () => removeItem (item) }
-                                    strokeWidth={1.75}
-                                />                            
-                            </span>
-                        </li>
-                    ))
-                }
-            </ul>            
-        }
-    </div>
+                                >
+                                    <Trash2  
+                                        strokeWidth={1.75}
+                                        aria-hidden='true'
+                                        size={21}
+                                    />
+                                </button>
+                            </li>
+                        ))
+                    }
+                </ul>            
+            }            
+        </div>
+
+    </section>
   )
 }

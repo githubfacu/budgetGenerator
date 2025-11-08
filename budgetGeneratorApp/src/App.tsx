@@ -8,7 +8,7 @@ import { FormContainer } from './components/estructura/FormContainer';
 
 function App() {
 
-  const { modalSwitch, modalSwitchOn } = useContext(ModalContext)
+  const { modalSwitch } = useContext(ModalContext)
   const { formData } = useContext(DataContext)
 
   const generarPDF = () => {
@@ -38,14 +38,14 @@ function App() {
     }
   }
 
-  const handleModalSendEmail = () => {
-    if (formData.firmaTitular.trim() === '') {
-      if (!confirm('El documento tiene el campo firma vacío, quiere continuar de todos modos?')) {
-        return false  
-      }
-    }
-    modalSwitchOn()
-  }
+  // const handleModalSendEmail = () => {
+  //   if (formData.firmaTitular.trim() === '') {
+  //     if (!confirm('El documento tiene el campo firma vacío, quiere continuar de todos modos?')) {
+  //       return false  
+  //     }
+  //   }
+  //   modalSwitchOn()
+  // }
 
   return (
     <>
@@ -62,14 +62,14 @@ function App() {
           </div>
           
           <div className='actionButtonsDiv'>
-            <button 
+            {/* <button 
               className='actionButton'
               onClick={ handleModalSendEmail }
             >
               Enviar por correo
-            </button>
+            </button> */}
             <button 
-              className='actionButton'
+              className='button-primary'
               onClick={ generarPDF }
             >
               Descargar pdf
@@ -81,7 +81,7 @@ function App() {
           <div className='actionButtonsDiv'
             style={{ marginBottom: '1rem', justifyContent: 'flex-end' }}>
             <button 
-              className='actionButton'
+              className='button-primary'
               onClick={ () => alert(
                 '¡Gracias por tu interés en donar! 🙌\n\n' +
                 'Usá los siguientes datos en tu app de banco o Mercado Pago para realizar la transferencia:\n\n' +
@@ -95,7 +95,7 @@ function App() {
               Donar
             </button>
             <button 
-              className='actionButton'
+              className='button-primary'
               onClick={ generarPDF }
             >
               Descargar pdf
