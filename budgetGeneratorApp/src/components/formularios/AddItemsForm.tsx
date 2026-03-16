@@ -20,7 +20,7 @@ export const AddItemsForm = () => {
         <div className={styles.itemsSubmitForm}>
             <h2 id='services-list'>Lista de servicios</h2>
 
-            <label htmlFor="itemField">Item</label>
+            <label htmlFor="itemField">Nombre</label>
             <input 
                 {...itemField}
                 id='itemField' 
@@ -60,16 +60,18 @@ export const AddItemsForm = () => {
                                     value={item.textContent} 
                                     className={styles.textContentInput}
                                     onChange={ (e) => itemTextContentUpdate(e, item) }
+                                    aria-label={`Nombre item ${index +1}`}
                                 />
                                 <input 
                                     type="text" 
                                     value={item.price} 
                                     className={styles.priceInput}
                                     onChange={ (e) => itemPriceUpdate(e, item) }
+                                    aria-label="precio"
                                 />
                                 <button 
                                     className={styles.trashIcon}
-                                    aria-label='Eliminar item'
+                                    aria-label={`Eliminar ${item.textContent}`}
                                     onClick={ () => removeItem (item) }
                                 >
                                     <Trash2  

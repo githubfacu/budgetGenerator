@@ -8,11 +8,15 @@ export const FormContainer = () => {
 
   return (
     <>
-        <BasicDataForm />
-        <AddItemsForm />
-        <TotalAmount />
-        <Condiciones />
-        <FirmaTitular />
+      <BasicDataForm>
+        <BasicDataForm.PersonalDataForm />
+        <hr />
+        <BasicDataForm.ClientDataForm />
+      </BasicDataForm>
+      <AddItemsForm />
+      <TotalAmount />
+      <Condiciones />
+      <FirmaTitular />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styles from '../../styles/condiciones.module.css'
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { DataContext } from '../../context/data/DataContext';
 
 const Condiciones = () => {
@@ -21,9 +21,26 @@ const Condiciones = () => {
             <textarea id="condiciones1" {...condiciones1} placeholder='descripción opcional...'/>                
         </div>
 
+        <button 
+            className={styles.desplegarSeccion}
+            onClick={ () => setShowMore(!showMore) }
+            aria-expanded={showMore}
+            aria-controls="condiciones-extra"
+            type='button'
+        >
+            <strong>
+                { showMore ? 'Contraer sección' : 'Desplegar sección' }
+            </strong>
+            
+            {
+                showMore ? <ChevronDown aria-hidden='true' /> : 
+                <ChevronRight  aria-hidden='true' />
+            }
+        </button>
+
         {
             showMore &&
-            <div id='condiciones-extra'>
+            <div id='condiciones-extra' className={styles.extraConditions}>
                 <div className={styles.textareaDiv}>
                     <label htmlFor="condiciones2">Descripción 2</label>
                     <textarea id='condiciones2' {...condiciones2} placeholder='descripción opcional...'/>
@@ -40,24 +57,6 @@ const Condiciones = () => {
                 </div> 
             </div>
         }
-
-        <button 
-            className={styles.desplegarSeccion}
-            onClick={ () => setShowMore(!showMore) }
-            aria-expanded={showMore}
-            aria-controls="condiciones-extra"
-            type='button'
-        >
-            <strong>
-                { showMore ? 'Contraer sección' : 'Desplegar sección' }
-            </strong>
-            
-            {
-                showMore ? <ChevronUp aria-hidden='true' /> : 
-                <ChevronDown  aria-hidden='true' />
-            }
-        </button>
-
     </section>
   )
 }

@@ -8,7 +8,7 @@ export const SecurityForm = () => {
 
     const { passwordMatchOn } = useContext(ModalContext)
 
-    const clave = import.meta.env.VITE_CLAVE
+    const clave = import.meta.env.VITE_MAILER_CLAVE
     const password = useInput('text')
 
     const handleSubmit = (e : React.FormEvent) => {

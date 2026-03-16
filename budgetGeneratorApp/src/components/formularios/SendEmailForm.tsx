@@ -1,20 +1,26 @@
+
+import emailjs from '@emailjs/browser'
+import html2pdf from 'html2pdf.js';
 import { useContext, useEffect, useState } from 'react';
+import { ModalContext } from '../../context/ModalContext';
 import useInput from '../../hooks/useInput';
 import styles from '../../styles/sendEmailForm.module.css'
-import html2pdf from 'html2pdf.js';
-import { ModalContext } from '../../context/ModalContext';
 
 interface EmailFormProps {
     email: string
     obra: string
 }
 
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
 
     const { modalSwitchOff } = useContext(ModalContext)
 
     const remitente = useInput('text', email);
-    const destinatarios1 = useInput('text');
+    const destinatarios1 = useInput('text', email);
     const destinatarios2 = useInput('text');
     const destinatarios3 = useInput('text');
     const asunto = useInput('text', 'presupuesto');
@@ -51,11 +57,11 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
     }, [obra])
 
     const handleSubmitForm = async (e: React.FormEvent) => {
-        console.log(remitente.value);
-        
         e.preventDefault()
-        alert('Esta función está momentáneamente deshabilitada')
-        return modalSwitchOff()
+        modalSwitchOff()
+        return alert('Función de envío de correo aún no implementada.');
+
+
         setIsSending(true)
 
         const destinatarios = [destinatarios1.value, destinatarios2.value, destinatarios3.value]
@@ -67,19 +73,31 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
             setIsSending(false);
             return;
         }
-        
 
-        // const templateParams = {
-        //     remitente: remitente.value,
-        //     destinatario: destinatarios,
-        //     asunto: asunto.value,
-        //     mensaje: mensaje.value,
-        //     attachment: pdfBase64 ? {
-        //         filename: fileName,
-        //         content: pdfBase64,
-        //         encoding: 'base64'
-        //     } : null,
-        // };
+        try {
+            await emailjs.send(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                {
+                    from_email: remitente.value,
+                    to_email: destinatarios,
+                    subject: asunto.value,
+                    message: mensaje.value,
+                    attachment: pdfBase64,
+                    filename: fileName
+                },
+                PUBLIC_KEY
+            )
+
+            alert('Correo enviado exitosamente.')
+            modalSwitchOff()
+
+        } catch (error) {
+            console.error(error)
+            alert('Error al enviar el correo.')
+        } finally {
+            setIsSending(false)
+        }
     }
 
 
@@ -87,7 +105,7 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
     <form onSubmit={ handleSubmitForm } className={styles.sendEmailFormContainer}>
         <div className={styles.fieldDiv}>
             <label htmlFor="remitente">De</label>
-            <input disabled={true} id="remitente" {...remitente}/>
+            <input id="remitente" {...remitente}/>
         </div>
         <div className={styles.fieldDiv}>
             <label htmlFor="destinatarios1">Destinatario 1</label>
@@ -110,13 +128,18 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
             <textarea id="mensaje" {...mensaje}/>                
         </div>
 
-        <button type="submit" disabled={isSending}>
-            {isSending ? 'Enviando...' : 'Enviar Correo'}
-        </button>
-
-        <span style={{ color: 'red'}}>El servicio de correo está momentáneamente deshabilitado.</span>
-
         {pdfBase64 && <p>Archivo adjunto: {fileName}</p>}
+
+        <div className={styles.buttonDiv}>
+            <button className={`button-primary ${styles.sendButton}`} type="submit" disabled={isSending}>
+                {isSending ? 'Enviando...' : 'Enviar'}
+            </button>
+
+            <button className={`button-secondary ${styles.cancelButton}`} onClick={ modalSwitchOff }>
+                Cancelar
+            </button>            
+        </div>
+
     </form>
   )
 }

@@ -42,7 +42,7 @@ export const PersonalDataForm = () => {
             <button 
                 className={`button-secondary ${styles.autoguardar}`}
                 onClick={ guardarEnStorage }
-                aria-haspopup='dialog'
+                aria-modal='true'
                 aria-describedby='auto-save-info'
             >
                 Guardar

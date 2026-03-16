@@ -48,8 +48,8 @@ export const Modal = () => {
                 <SecurityForm />
             }
 
-            <span className={styles.closeModalX} onClick={ modalSwitchOff }>
-                <X size={32} strokeWidth={2.25}/>
+            <span aria-label="cerrar" tabIndex={0} className={styles.closeModalX} onClick={ modalSwitchOff }>
+                <X size={32} strokeWidth={2}/>
             </span>
         </div>
     </div>

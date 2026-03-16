@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    gap: 4px;
+    gap: 6px;
 }
 
 .fieldDiv{
@@ -33,25 +33,24 @@
 }
 
 .fieldDiv input, .textareaDiv textarea {
-    font-size: 1.1rem;
-    padding: 4px;
+    font-size: 1rem;
+    padding: 6px;
     width: 100%;
     box-sizing: border-box;
     border-radius: 5px;
 }
 
-.sendEmailFormContainer button{
-    background-color: #0b57d0;
-    color: white;
-    font-size: 1.1rem;
+.buttonDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
     margin-top: 1rem;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 100%;
 }
 
-.sendEmailFormContainer button:hover{
-    background-color: #1b61d1;
+.sendButton{
+    width: 100%;
 }
 
 

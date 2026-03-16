@@ -8,7 +8,7 @@ import { FormContainer } from './components/estructura/FormContainer';
 
 function App() {
 
-  const { modalSwitch } = useContext(ModalContext)
+  const { modalSwitch, modalSwitchOn } = useContext(ModalContext)
   const { formData } = useContext(DataContext)
 
   const generarPDF = () => {
@@ -38,14 +38,14 @@ function App() {
     }
   }
 
-  // const handleModalSendEmail = () => {
-  //   if (formData.firmaTitular.trim() === '') {
-  //     if (!confirm('El documento tiene el campo firma vacío, quiere continuar de todos modos?')) {
-  //       return false  
-  //     }
-  //   }
-  //   modalSwitchOn()
-  // }
+  const handleModalSendEmail = () => {
+    if (formData.firmaTitular.trim() === '') {
+      if (!confirm('El documento tiene el campo firma vacío, quiere continuar de todos modos?')) {
+        return false  
+      }
+    }
+    modalSwitchOn()
+  }
 
   return (
     <>
@@ -62,12 +62,12 @@ function App() {
           </div>
           
           <div className='actionButtonsDiv'>
-            {/* <button 
-              className='actionButton'
+            <button 
+              className='button-primary'
               onClick={ handleModalSendEmail }
             >
               Enviar por correo
-            </button> */}
+            </button>
             <button 
               className='button-primary'
               onClick={ generarPDF }
@@ -99,7 +99,7 @@ function App() {
               onClick={ generarPDF }
             >
               Descargar pdf
-            </button>            
+            </button>   
           </div>
 
         </section>

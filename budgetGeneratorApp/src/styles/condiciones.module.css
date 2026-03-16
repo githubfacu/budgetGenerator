@@ -28,9 +28,11 @@
 
 .desplegarSeccion:hover{
   background-color: rgba(255, 255, 255, 0.87);
-
 }
 
+.extraConditions{
+    width: 100%;
+}
 
 
 @media (min-width: 768px){

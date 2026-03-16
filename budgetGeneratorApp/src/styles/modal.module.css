@@ -17,14 +17,24 @@
     justify-content: center;
     background-color: white;
     padding: 2rem;
+    padding-bottom: 1.5rem;
     position: relative;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .closeModalX{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 4px;
+    right: 4px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeModalX:focus{
+    outline: 2px solid black;
 }
 
 @media (min-width: 768px){

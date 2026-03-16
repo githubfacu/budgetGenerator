@@ -9,6 +9,20 @@
     padding-bottom: 0;
 }
 
+.instructions{
+  width: 100%;
+  text-align: start;
+  border: 1px solid white;
+  padding: 1rem 0;
+  list-style-position: inside;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.instructions li{
+    margin: 0 1.5rem;
+}
+
 .dataEncabezado{
     width: 100%;
     display: flex;
