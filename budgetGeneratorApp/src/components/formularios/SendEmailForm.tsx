@@ -1,19 +1,14 @@
 
-import emailjs from '@emailjs/browser'
-import html2pdf from 'html2pdf.js';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 import useInput from '../../hooks/useInput';
 import styles from '../../styles/sendEmailForm.module.css'
+import { useSendBudgetEmail } from '../../hooks/useSendBudgetEmail';
 
 interface EmailFormProps {
     email: string
     obra: string
 }
-
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
 
@@ -26,79 +21,49 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
     const asunto = useInput('text', 'presupuesto');
     const mensaje = useInput('text');
 
-    const [pdfBase64, setPdfBase64] = useState<string | null>(null);
-    const [fileName, setFileName] = useState<string | null>(null);
-    const [isSending, setIsSending] = useState(false)
-
-
-    const generarPDF = async (): Promise<string | null> => {
-        const element = document.getElementById('documentPDF');
-
-        if (element) {
-            const prevScale = element.style.transform;
-            element.style.transform = 'scale(1)';
-
-            const pdfBase64 = await html2pdf()
-                .from(element)
-                .output('datauristring');
-
-            element.style.transform = prevScale;
-
-            return pdfBase64.split(',')[1];
-        }
-        return null;
-    };
-
-    useEffect(() => {
-        generarPDF().then((pdf) => {
-            setPdfBase64(pdf)
-        })
-        setFileName(`presupuesto-${obra.split(' ').join('-')}.pdf`)
-    }, [obra])
+    const {
+        loading,
+        error,
+        success,
+        previewUrl,
+        feedMessage,
+        sendEmail
+    } = useSendBudgetEmail();
 
     const handleSubmitForm = async (e: React.FormEvent) => {
-        e.preventDefault()
-        modalSwitchOff()
-        return alert('Función de envío de correo aún no implementada.');
+        e.preventDefault();
 
-
-        setIsSending(true)
-
-        const destinatarios = [destinatarios1.value, destinatarios2.value, destinatarios3.value]
-        .filter(Boolean)
-        .join(',');
+        const destinatarios = [
+            destinatarios1.value,
+            destinatarios2.value,
+            destinatarios3.value
+        ]
+            .filter(Boolean)
+            .join(',');
 
         if (!destinatarios) {
             alert('Debe ingresar al menos un destinatario.');
-            setIsSending(false);
             return;
         }
 
         try {
-            await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                {
-                    from_email: remitente.value,
-                    to_email: destinatarios,
-                    subject: asunto.value,
-                    message: mensaje.value,
-                    attachment: pdfBase64,
-                    filename: fileName
-                },
-                PUBLIC_KEY
-            )
 
-            alert('Correo enviado exitosamente.')
-            modalSwitchOff()
+            await sendEmail({
+                elementId: 'documentPDF',
+                fileName: `presupuesto-${obra
+                    .trim()
+                    .replace(/\s+/g, '-')
+                    .toLowerCase()}.pdf`,
+                from: remitente.value,
+                to: destinatarios,
+                subject: asunto.value,
+                message: mensaje.value,
+            });
 
-        } catch (error) {
-            console.error(error)
-            alert('Error al enviar el correo.')
-        } finally {
-            setIsSending(false)
+        } catch {
+            // error ya manejado en hook
         }
-    }
+    };
 
 
   return (
@@ -128,11 +93,34 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
             <textarea id="mensaje" {...mensaje}/>                
         </div>
 
-        {pdfBase64 && <p>Archivo adjunto: {fileName}</p>}
+        {feedMessage && (
+            <p className={styles.feedMessage}>
+                {feedMessage}
+            </p>
+        )}
+
+        {error && (
+            <p className={styles.errorMessage}>
+                {error}
+            </p>
+        )}
+
+        {success && (
+            <div className={styles.successMessage}>
+                <span>
+                    ✅ Correo enviado correctamente
+                    {previewUrl && (
+                        <a href={previewUrl} target="_blank" style={{ padding: '0px 4px'}}>
+                            Ver PDF
+                        </a>
+                    )}                    
+                </span>
+            </div>
+        )}
 
         <div className={styles.buttonDiv}>
-            <button className={`button-primary ${styles.sendButton}`} type="submit" disabled={isSending}>
-                {isSending ? 'Enviando...' : 'Enviar'}
+            <button className={`button-primary ${styles.sendButton}`} type="submit" disabled={loading}>
+                {loading ? 'Procesando...' : 'Enviar'}
             </button>
 
             <button className={`button-secondary ${styles.cancelButton}`} onClick={ modalSwitchOff }>

@@ -53,6 +53,14 @@
     width: 100%;
 }
 
+.feedMessage{
+    margin-top: .5rem;
+}
+
+.errorMessage{
+    margin-top: .5rem;
+    color: rgb(186, 0, 0);
+}
 
 @media (min-width: 768px) {
 

@@ -64,12 +64,6 @@ function App() {
           <div className='actionButtonsDiv'>
             <button 
               className='button-primary'
-              onClick={ handleModalSendEmail }
-            >
-              Enviar por correo
-            </button>
-            <button 
-              className='button-primary'
               onClick={ generarPDF }
             >
               Descargar pdf
@@ -100,6 +94,12 @@ function App() {
             >
               Descargar pdf
             </button>   
+            <button 
+              className='button-primary'
+              onClick={ handleModalSendEmail }
+            >
+              Enviar por correo
+            </button>
           </div>
 
         </section>
