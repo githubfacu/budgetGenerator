@@ -1,8 +1,8 @@
-# Simple Budget Generator
+# Budget Generator
 
 Aplicación web desarrollada con **React + TypeScript** con generación de documentos desde el frontend, integración con servicios externos y organización modular de lógica mediante hooks y servicios desacoplados.
 
-## 💫 Funcionalidad principal
+## Funcionalidad principal
 
 - Completar un formulario de presupuesto  
 - Generar un documento visual en pantalla  
@@ -10,7 +10,7 @@ Aplicación web desarrollada con **React + TypeScript** con generación de docum
 
 Esta funcionalidad es pública y no requiere autenticación.
 
-## 🔐 Funcionalidad técnica (modo restringido)
+## Funcionalidad técnica (modo restringido)
 
 La aplicación incluye un flujo adicional utilizado para demostración técnica:
 
@@ -21,7 +21,7 @@ La aplicación incluye un flujo adicional utilizado para demostración técnica:
 
 Este flujo está protegido mediante una clave y no forma parte del uso público de la aplicación.
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - React  
 - TypeScript  
