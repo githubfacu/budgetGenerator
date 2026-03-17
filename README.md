@@ -1,8 +1,8 @@
-# 📄 Simple Budget Generator
+# Simple Budget Generator
 
 Aplicación web desarrollada con **React + TypeScript** que permite generar presupuestos desde una página simple y descargarlos en formato **PDF**.
 
-## 🚀 Funcionalidad principal
+## 💫 Funcionalidad principal
 
 - Completar un formulario de presupuesto  
 - Generar un documento visual en pantalla  
