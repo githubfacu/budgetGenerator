@@ -1,6 +1,6 @@
 # Simple Budget Generator
 
-Aplicación web desarrollada con **React + TypeScript** que permite generar presupuestos desde una página simple y descargarlos en formato **PDF**.
+Aplicación web desarrollada con **React + TypeScript** con generación de documentos desde el frontend, integración con servicios externos y organización modular de lógica mediante hooks y servicios desacoplados.
 
 ## 💫 Funcionalidad principal
 
@@ -29,7 +29,3 @@ Este flujo está protegido mediante una clave y no forma parte del uso público 
 - Cloudinary Upload API  
 - EmailJS  
 - CSS Modules  
-
-## 🎯 Objetivo
-
-Demostrar generación de documentos desde el frontend, integración con servicios externos y organización modular de lógica mediante hooks y servicios desacoplados.
