@@ -1,20 +1,25 @@
 import html2pdf from "html2pdf.js";
 
-export const generatePdfBlob = async (elementId: string): Promise<Blob> => {
-    const element = document.getElementById(elementId);
+interface generarPDFProps {
+    element: HTMLElement
+    fileName: string
+}
 
-    if (!element) {
-        throw new Error("Elemento PDF no encontrado");
-    }
+export const generatePDF = async ({ element, fileName }: generarPDFProps ) => {
 
-    const prevScale = element.style.transform;
-    element.style.transform = 'scale(1)';
+    html2pdf()
+    .from(element)
+    .set({
+    margin: 0,
+    filename: fileName
+    })
+    .save()
+}
+
+export const generatePdfBlob = async (element: HTMLElement): Promise<Blob> => {
 
     const blob = await html2pdf()
         .from(element)
         .outputPdf("blob");
-        
-    element.style.transform = prevScale;
-
     return blob;
 };

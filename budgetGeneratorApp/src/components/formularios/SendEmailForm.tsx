@@ -46,22 +46,27 @@ export const SendEmailForm = ( { email, obra } : EmailFormProps ) => {
             return;
         }
 
-        try {
+        const element = document.getElementById('documentPDF');
 
-            await sendEmail({
-                elementId: 'documentPDF',
-                fileName: `presupuesto-${obra
-                    .trim()
-                    .replace(/\s+/g, '-')
-                    .toLowerCase()}.pdf`,
-                from: remitente.value,
-                to: destinatarios,
-                subject: asunto.value,
-                message: mensaje.value,
-            });
+        if (element) {
 
-        } catch {
-            // error ya manejado en hook
+            const prevScale = element.style.transform;
+            element.style.transform = 'scale(1)';
+            try {
+                await sendEmail({
+                    element: element,
+                    fileName: `presupuesto-${obra
+                        .trim()
+                        .replace(/\s+/g, '-')
+                        .toLowerCase()}.pdf`,
+                    from: remitente.value,
+                    to: destinatarios,
+                    subject: asunto.value,
+                    message: mensaje.value,
+                });
+            } finally{
+                element.style.transform = prevScale;
+            }
         }
     };
 

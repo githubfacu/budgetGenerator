@@ -2,7 +2,7 @@ import { useState } from "react";
 import { generatePdfBlob, sendBudgetEmail, uploadPdf } from "../services";
 
 interface SendEmailParams {
-    elementId: string;
+    element: HTMLElement;
     fileName: string;
     from: string;
     to: string;
@@ -28,7 +28,7 @@ export const useSendBudgetEmail = () => {
         try {
 
             setFeedMessage("📄 Generando PDF...");
-            const blob = await generatePdfBlob(params.elementId);
+            const blob = await generatePdfBlob(params.element);
 
             setFeedMessage("☁️ Subiendo PDF...");
             const uploadResult = await uploadPdf(blob, params.fileName);

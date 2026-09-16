@@ -18,17 +18,6 @@ export const Documento = () => {
     
     const formatDate = date.toLocaleDateString('es-ES', options);
 
-    // const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-    // const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
-    // const diaSemana = diasSemana[date.getDay()]
-    // const dia = date.getDate()
-    // const mes = meses[date.getMonth()]
-    // const año = date.getFullYear()
-
-    // const formattedDate = formData.clientData.fecha ? `${diaSemana}, ${dia} de ${mes} de ${año}` : 'fecha'
-    
-
   return (
     <div className={styles.documentContainer} id='documentPDF'>
         <div className={styles.encabezado}>

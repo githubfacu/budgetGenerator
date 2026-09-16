@@ -2,16 +2,16 @@ import { useContext } from 'react';
 import { ModalContext } from './context/ModalContext';
 import { DataContext } from './context/data/DataContext';
 import { Documento } from './components/documento/Documento';
-import html2pdf from 'html2pdf.js';
 import { Modal } from './components/Modal';
 import { FormContainer } from './components/estructura/FormContainer';
+import { generatePDF } from './services/pdfService';
 
 function App() {
 
   const { modalSwitch, modalSwitchOn } = useContext(ModalContext)
   const { formData } = useContext(DataContext)
 
-  const generarPDF = () => {
+  const handlePDFGenerate = async () => {
     const element = document.getElementById('documentPDF');
     const fileName = `presupuesto-${formData.clientData.obra.split(' ').join('-')}.pdf`
 
@@ -24,17 +24,8 @@ function App() {
     if (element) {
       const prevScale = element.style.transform
       element.style.transform='scale(1)'
-
-      html2pdf()
-      .from(element)
-      .set({
-        margin: 0,
-        filename: fileName
-      })
-      .save()
-      .then(() => {
-        return element.style.transform=prevScale
-      })
+      await generatePDF({ element, fileName })
+      return element.style.transform=prevScale
     }
   }
 
@@ -64,7 +55,7 @@ function App() {
           <div className='actionButtonsDiv'>
             <button 
               className='button-primary'
-              onClick={ generarPDF }
+              onClick={ handlePDFGenerate }
             >
               Descargar pdf
             </button>            
@@ -90,7 +81,7 @@ function App() {
             </button>
             <button 
               className='button-primary'
-              onClick={ generarPDF }
+              onClick={ handlePDFGenerate }
             >
               Descargar pdf
             </button>   
